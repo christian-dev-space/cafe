@@ -1,3 +1,3 @@
 export const API = {
-  baseUrl: "http://127.0.0.1:8787",
+  baseUrl: "https://miga-pos-api.miga-cafe.workers.dev",
 };
