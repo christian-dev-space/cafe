@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+        .cafe-pos * { box-sizing: border-box; }
+        .cafe-pos button { font-family: inherit; cursor: pointer; }
+        .cafe-pos ::-webkit-scrollbar { height: 6px; width: 6px; }
+        .cafe-pos ::-webkit-scrollbar-thumb { background: #DED0B0; border-radius: 4px; }
+        .cafe-pos *:focus-visible { outline: 2px solid #AD7A32; outline-offset: 2px; }
+        @keyframes cafeToastIn { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+        @media (prefers-reduced-motion: reduce) {
+          .cafe-pos * { transition: none !important; animation: none !important; }
+        }
+        /* Printing: only the receipt card should ever reach paper. Everything
+           else — the app chrome, the dimmed backdrop, the on-screen buttons —
+           is stripped out here rather than in JS, so there's one place to
+           adjust if you want to change what a printed receipt looks like. */
+        @page {
+          size: 80mm auto;
+          margin: 0;
+        }
+        @media print {
+
+          html,
+          body{
+              margin:0;
+              padding:0;
+              background:white;
+          }
+
+          .cafe-pos-root { background: #fff !important; min-height: 0 !important; }
+          .cafe-pos{
+              display:none !important;
+          }
+          .cafe-pos-no-print{
+              display:none !important;
+          }
+          .cafe-pos-receipt-overlay{
+              position:static !important;
+              display:flex !important;
+              justify-content:center !important;
+
+              margin:0 !important;
+              padding:0 !important;
+
+              background:white !important;
+          }
+          .cafe-pos-receipt-card{
+              width:80mm !important;
+              max-width:80mm !important;
+
+              border:none !important;
+              border-radius:0 !important;
+              box-shadow:none !important;
+
+              margin:0 auto !important;
+          }
+        }
+
+        .cafe-pos-root {
+          font-family: "Inter", sans-serif;
+          background: #F8F4EC;   /* COLORS.crema */
+          min-height: 600px;
+        }
