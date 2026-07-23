@@ -1,5 +1,5 @@
 export const DEFAULT_SETTINGS = {
-  cafeName: 'Amiga',
+  cafeName: 'Miga',
   currency: '₱',
   taxRate: 0,
   receiptAddress: '',
